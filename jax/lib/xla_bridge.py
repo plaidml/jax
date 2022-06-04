@@ -192,6 +192,9 @@ register_backend_factory('gpu', xla_client.make_gpu_client,
 register_backend_factory(
   'tpu', partial(tpu_client_timer_callback, timer_secs=60.0), priority=300)
 
+register_backend_factory('plaidml_cpu', xla_client.make_plaidml_cpu_client,
+                         priority=400)
+
 _default_backend = None
 _backends = None
 _backends_errors = None
